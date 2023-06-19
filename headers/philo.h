@@ -6,7 +6,7 @@
 /*   By: dgoubin <dgoubin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:42:54 by dgoubin           #+#    #+#             */
-/*   Updated: 2023/06/15 16:48:43 by dgoubin          ###   ########.fr       */
+/*   Updated: 2023/06/19 13:24:50 by dgoubin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
     # endif
 
     typedef struct s_world {
-        struct timeval  stime;
+        long            stime;
         int             pn;
         int             all_ate;
         int             ttd;
@@ -52,10 +52,12 @@
     void    init_all(t_world *world, char *av[], int ac);
     size_t  ft_strlen(char *str);
     void    error_handler(char *str);
-    long    get_actual_time(struct timeval stime);
+    long    get_actual_time();
     long    timestamp(struct timeval time);
     int     ft_atoi(const char *str);
     void    launch(t_world *world);
     void    *philo_life(void *p);
     void    ft_usleep(int n);
+    void    checker(t_world *world);
+
 #endif
