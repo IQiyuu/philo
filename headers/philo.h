@@ -10,54 +10,54 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef JOKER
-# define JOKER
+#ifndef PHILO_H
+# define PHILO_H
 
-    #include <stdio.h>
-    #include <sys/time.h>
-    #include <unistd.h>
-    #include <pthread.h>
-    #include <stdlib.h>
+# include <stdio.h>
+# include <sys/time.h>
+# include <unistd.h>
+# include <pthread.h>
+# include <stdlib.h>
 
-    # ifndef EXIT_FAILLURE
-    #  define EXIT_FAILLURE 1
-    # endif
-    # ifndef EXIT_SUCCESS
-    #  define EXIT_SUCCESS 0
-    # endif
+# ifndef EXIT_FAILLURE
+#  define EXIT_FAILLURE 1
+# endif
+# ifndef EXIT_SUCCESS
+#  define EXIT_SUCCESS 0
+# endif
 
-    typedef struct s_world {
-        long            stime;
-        int             pn;
-        int             all_ate;
-        int             ttd;
-        int             tte;
-        int             tts;
-        int             en;
-        int             ended;
-        struct s_philo  *philos;
-        pthread_mutex_t writing;
-        pthread_mutex_t *forks;
-        pthread_mutex_t death;
-    } t_world;
+typedef struct s_world {
+	long			stime;
+	int				pn;
+	int				all_ate;
+	int				ttd;
+	int				tte;
+	int				tts;
+	int				en;
+	int				ended;
+	struct s_philo	*philos;
+	pthread_mutex_t	writing;
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	death;
+}	t_world;
 
-    typedef struct  s_philo {
-        int             id;
-        int             eating_time;
-        pthread_t       thread;
-        t_world         *world;
-        struct timeval  last_eat;
-    } t_philo;
+typedef struct s_philo {
+	int				id;
+	int				eating_time;
+	pthread_t		thread;
+	t_world			*world;
+	struct timeval	last_eat;
+}	t_philo;
 
-    void    init_all(t_world *world, char *av[], int ac);
-    size_t  ft_strlen(char *str);
-    void    error_handler(char *str);
-    long    get_actual_time();
-    long    timestamp(struct timeval time);
-    int     ft_atoi(const char *str);
-    void    launch(t_world *world);
-    void    *philo_life(void *p);
-    void    ft_usleep(int n);
-    void    checker(t_world *world);
+void	init_all(t_world *world, char *av[], int ac);
+size_t	ft_strlen(char *str);
+void	error_handler(char *str);
+long	get_actual_time(void);
+long	timestamp(struct timeval time);
+int		ft_atoi(const char *str);
+void	launch(t_world *world);
+void	*philo_life(void *p);
+void	ft_usleep(int n);
+void	checker(t_world *world);
 
 #endif
