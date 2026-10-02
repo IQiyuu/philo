@@ -153,4 +153,6 @@ Le projet met particulièrement l'accent sur la synchronisation des threads et l
 
 ## Auteur
 
+IQiyuu
+
 Projet réalisé dans le cadre du **cursus 42**.
